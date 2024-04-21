@@ -32,4 +32,26 @@ describe('Reqres api automation tests', ()=>{
         const emailFirst = firstData.email;
         expect(emailFirst).to.contain('reqres.in');
     })
+
+    test.only('POST call - CREATE', async ()=> {
+        const response = await recObj.postRequest('api/users', {
+            "name": "morpheus",
+            "job": "leader"
+        })
+        expect(response.status).to.equal(201);
+        const resBody: object = await response.json();
+        console.log(resBody);
+
+        const resParsed = JSON.parse(JSON.stringify(resBody));
+        expect(resParsed.name).to.equal('morpheus');
+        expect(resParsed.job).to.equal('leader');
+        const createdAt:TimeRanges = resParsed.createdAt;
+        const createdAtSplit = createdAt.toString().split("T");
+        const createdDate = createdAtSplit[0];
+        const dateFormat = await recObj.dateOperations(createdDate, "yyyy-mm-dd");
+        expect(createdDate).to.equal(dateFormat);
+        // const isValid = await recObj.isValidDate(createdDate)
+        // expect(isValid).to.equal(true);    
+
+    })
 })
