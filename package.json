@@ -1,0 +1,23 @@
+{
+  "name": "vitest-automation",
+  "version": "1.0.0",
+  "description": "vitest api automation e2e",
+  "main": "index.js",
+  "scripts": {
+    "test": "vitest --config sample\\vitest.config.ts"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Abthakur1/vitest-automation.git"
+  },
+  "author": "Abhishek Thakur",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Abthakur1/vitest-automation/issues"
+  },
+  "homepage": "https://github.com/Abthakur1/vitest-automation#readme",
+  "devDependencies": {
+    "typescript": "^5.4.5",
+    "vitest": "^1.5.0"
+  }
+}
