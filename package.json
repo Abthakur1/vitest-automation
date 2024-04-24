@@ -17,7 +17,20 @@
   },
   "homepage": "https://github.com/Abthakur1/vitest-automation#readme",
   "devDependencies": {
+    "husky": "9.0.11",
+    "lint-staged": "15.2.2",
     "typescript": "^5.4.5",
     "vitest": "^1.5.0"
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "yarn lint-staged"
+    }
+  },
+  "lint-staged": {
+    "src/**/*.ts": [
+      "eslint --fix",
+      "git add"
+    ]
   }
 }
